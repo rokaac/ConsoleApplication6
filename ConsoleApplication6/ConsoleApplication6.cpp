@@ -379,3 +379,407 @@ int main()
     }
     fclose(unos);
 }
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <fstream>
+#include<string>
+
+using namespace std;
+//ispise brojeve jedne ispod drugih v datoteku
+/*int main() {
+   string ime = "datokeka.txt";
+   ofstream datokeka(ime);
+   int  broj;
+   while (cin>>broj&&broj!=0) {
+           datokeka << broj<<endl;
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//iz datoteke u cmd
+/*
+int main(){
+   string ime = "znam.txt";
+   ifstream znam(ime);
+   int broj;
+   while (znam>> broj && broj != 0) {
+       cout << broj << endl;
+   }
+   znam.close();
+   return 0;
+}
+*/
+
+//ispiše koliko je znakova napisano u filu
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ifstream datokeka(ime);
+   char broj;
+   int broj_znakova=-10;
+   while (datokeka.get(broj)) {
+       broj_znakova++;
+   }
+   cout << broj_znakova << endl;
+   datokeka.close();
+   return 0;
+}
+*/
+
+//pronađe znak koji trazis
+/*
+int main() {
+   string prezime = "debil.txt";
+   ifstream debil(prezime);
+   char znak;
+   char trazeni;
+   cout << "upisi znak: " << endl;
+   cin >> znak;
+   bool pron = false;
+   while(debil.get(trazeni)) {
+       if (trazeni == znak) {
+           cout << "znak koji se nalazi u datoteci je:" << znak << endl;
+           pron = true;
+           break;
+       }
+   }
+   if (!pron) {
+       cout << "znak nije pronađen" << endl;
+   }
+   debil.close();
+   return 0;
+}
+*/
+/*
+int main() {
+   string prezime = "debil.txt";
+   ifstream debil(prezime);
+   char znak;
+   cout << "Unesite znak koji tražite: ";
+   cin >> znak;
+   bool pron = false;
+   char trenutni_znak;
+   int redak = 1;
+   while (debil.get(trenutni_znak)) {
+       if (trenutni_znak == znak) {
+           cout << "Znak koji tražite je pronađen u retku " << redak << endl;
+           pron = true;
+           break;
+       }
+       if (trenutni_znak == '\n') {
+           redak++;
+       }
+   }
+   if (!pron) {
+       cout << "Znak nije pronađen." << endl;
+   }
+   debil.close();
+   return 0;
+}
+*/
+//ovaj kod ispisuje rijecu u novi red
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ofstream datokeka(ime);
+   string rijec;
+   while (cin >> rijec&&rijec!="kraj") {
+       datokeka << rijec << endl;
+       
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//ispise u datoteci svaku unesenu račenicu u novi red
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ofstream datokeka(ime);
+   string linija;
+   while (getline(cin, linija) && linija != "kraj") {
+       datokeka << linija << endl;
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//ispise u 2 stucpac 1 su parni a drugi su neparni
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ofstream datokeka(ime);
+   int broj;
+   int brojac = 0;
+   while (cin >> broj && broj != 0) {
+       if (brojac % 2 == 0) {
+           datokeka << broj << "\t";
+       }
+       else {
+           datokeka << broj << endl;
+       }
+       brojac++;
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//is datoteke ispise u cmd u 4 stupca
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ifstream datokeka(ime);
+   
+
+   int broj;
+   int brojac = 0;
+   const int BROJ_STUPACA = 4;
+   while (datokeka>> broj && broj != 0) {
+       cout << broj << "\t";
+       brojac++;
+       if (brojac % BROJ_STUPACA == 0) {
+           cout << endl;
+       }
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//ispise mi velicinu u datoteku od 1 do 20 bez da ja unosim brojeve
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ofstream datokeka(ime);
+   const int VELICINA_POLJA = 20;
+   int polje[VELICINA_POLJA];
+   for (int i = 0; i < VELICINA_POLJA; i++) {
+       polje[i]=i+1;
+   }
+   for (int i = 0; i < VELICINA_POLJA; i++) {
+       datokeka << polje[i] << endl;
+   }
+   datokeka.close();
+   return 0;
+   
+}
+*/
+//provjeri dali su brojevi u 1 i 2 stupcu jednaki brojevima u 3 stupcu
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ifstream datokeka(ime);
+   int broj1, broj2, broj3;
+   int brojac = 0;
+   bool jednakost = false;
+   while (datokeka >> broj1 >> broj2 >> broj3) {
+       if (broj1 + broj2 == broj3) {
+           jednakost = true;
+           break;
+       }
+   }
+   if (jednakost) {
+       cout << "Zbrojevi brojeva u prvom i drugom redu su jednaki broju u trećem redu." << endl;
+   }
+   else {
+       cout << "Zbrojevi brojeva u prvom i drugom redu nisu jednaki broju u trećem redu." << endl;
+   }
+   datokeka.close();
+   return 0;
+}
+*/
+//ispise broj rijeci u datoteci
+/*
+int main() {
+   string ime = "datokeka.txt";
+   ifstream datokeka(ime);
+   int brojac = 0;
+   string rijec;
+   while (datokeka >> rijec && rijec != "kraj") {
+       brojac++;
+
+   }
+   cout << brojac;
+   datokeka.close();
+   return 0;
+}
+*/
+-------------------------------------------------------------
+using namespace std;
+
+int main()
+{
+   FILEdatoteka;
+
+   datoteka=fopen("tekst.txt","w+");
+   for(int i=0;i<3;i++){
+   fprintf(datoteka,"%d %d %d\n",1,2,3);
+
+   }
+   fclose(datoteka);
+   int brojac=0;
+   datoteka=fopen("tekst.txt","r");
+   int a,b,c;
+   for(int i=0;i<3;i++){
+   fscanf(datoteka,"%d %d %d",&a,&b,&c);
+   if(a+b==c){
+       brojac+=1;
+   }
+   }
+   cout<<brojac;
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   FILEdatoteka;
+
+   datoteka=fopen("tekst.txt","w+");
+   for(int i=0;i<3;i++){
+   fprintf(datoteka,"%d %d %d\n",1,2,3);
+
+   }
+   fclose(datoteka);
+   int brojac=0;
+   datoteka=fopen("tekst.txt","r");
+   int polje[3][3];
+   int a,b,c;
+   char poljeznakova[3];
+
+   for(int i=0;i<3;i++){
+   fscanf(datoteka,"%d %d %d",&a,&b,&c);
+   polje[i][1]=a;
+   polje[i][2]=b;
+   polje[i][3]=c;
+
+   if (polje[i][1]+polje[i][2]==polje[i][3]){
+       poljeznakova[i]='t';
+       brojac++;
+   }
+   else{poljeznakova[i]='n';}
+   }
+   fclose(datoteka);
+
+
+   datoteka=fopen("tekst.txt","w+");
+   for(int i=0;i<3;i++){
+   fprintf(datoteka,"%d %d %d %c\n",polje[i][1],polje[i][2]=b,polje[i][3],poljeznakova[i]);
+
+   }
+
+
+   cout<<brojac;
+
+
+
+   return 0;
+}
+
+#include <iostream>
+
+using namespace std;
+
+int main(){
+   FILE *izlaz;
+   izlaz = fopen("brojRj.txt","w+");
+   string recenica[100];
+   int brojac = 0;
+
+   fprintf(izlaz, "%s %s %s %s %s", "m", "e", "m", "m", "m");
+
+   fclose(izlaz);
+
+   izlaz = fopen("brojRj.txt","r");
+   while(fscanf(izlaz,"%s",recenica)!=EOF){
+       brojac++;
+   }
+   cout << brojac;
+   return 0;
+}
+---------------------------------------------------------------
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+   FILE *unos;
+   int broj;
+   unos = fopen("C:\\Users\\ucenik\\Desktop\\prvi.txt","a+");
+   while (1){
+       cin >> broj;
+       if (broj == 0)
+           break;
+       fprintf(unos, "%d\n",broj);
+   }
+   fclose(unos);
+
+   int redak=0;
+   int trazeni;
+   cout << endl << "upisi trazeni: ";
+   cin >> trazeni;
+   unos = fopen("C:\\Users\\ucenik\\Desktop\\prvi.txt","r");
+   while(1){
+       fscanf(unos,"%d\n",&broj);
+       redak ++;
+       if (broj == trazeni){
+           cout << endl << redak;
+           break;
+       }
+   }
+   fclose(unos);
+
+   cout << endl << endl;
+   int n=0;
+   int Zbroj[26];
+   char slovo;
+   int broj1;
+
+   unos = fopen("C:\\Users\\ucenik\\Desktop\\treci.txt","r");
+   for (int i=1; i<28;i++){
+       Zbroj[i] = 0;
+   }
+   while (fscanf(unos, "%d,%c\n", &broj1, &slovo) != EOF){
+       Zbroj[slovo-'a'] +=broj1;
+   }
+
+   for (int i=0; i<26; i++){
+       slovo = 'a' + i;
+       cout << slovo << " " << Zbroj[i] << endl;
+   }
+   cout << endl << endl;
+   fclose(unos);
+
+
+
+   char a,b,c;
+   char tocno[1000][4];
+   int brojtocno=0;
+   unos =fopen("C:\\Users\\ucenik\\Desktop\\cetvrti.txt","r");
+   while (fscanf(unos, "%c,%c,%c\n", &a, &b, &c) != EOF){
+
+       tocno[brojtocno][0] =a;
+       tocno[brojtocno][1] =b;
+       tocno[brojtocno][2] =c;
+       if (a < b && b<c)
+           tocno[brojtocno][3] ='T';
+       else
+           tocno[brojtocno][3] ='N';
+       brojtocno++;
+   }
+   fclose(unos);
+   unos =fopen("C:\\Users\\ucenik\\Desktop\\cetvrti.txt","w+");
+   for(int i=0; i<brojtocno;i++){
+       fprintf(unos,"%c,%c,%c%c\n",tocno[i][0],tocno[i][1],tocno[i][2],tocno[i][3]);
+   }
+   fclose(unos);
+}
