@@ -287,3 +287,95 @@ int main() {
 
 	return 0;
 }
+FILE* test;
+test = fopen("a.txt", "r");
+if (test == NULL)
+    cout << "Greska";
+int brojP;
+char slovo;
+cin >> slovo;
+char ulaz;
+while(fscanf(test, "%c", &ulaz) != EOF) {
+    if (ulaz == slovo)
+        brojP++;
+}
+cout << brojP;
+fclose(test);
+return 0;
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    FILE *unos;
+    int broj;
+    unos = fopen("C:\\Users\\ucenik\\Desktop\\prvi.txt","a+");
+    while (1){
+        cin >> broj;
+        if (broj == 0)
+            break;
+        fprintf(unos, "%d\n",broj);
+    }
+    fclose(unos);
+
+    int redak=0;
+    int trazeni;
+    cout << endl << "upisi trazeni: ";
+    cin >> trazeni;
+    unos = fopen("C:\\Users\\ucenik\\Desktop\\prvi.txt","r");
+    while(1){
+        fscanf(unos,"%d\n",&broj);
+        redak ++;
+        if (broj == trazeni){
+            cout << endl << redak;
+            break;
+        }
+    }
+    fclose(unos);
+
+    cout << endl << endl;
+    int n=0;
+    int Zbroj[26];
+    char slovo;
+    int broj1;
+
+    unos = fopen("C:\\Users\\ucenik\\Desktop\\treci.txt","r");
+    for (int i=1; i<28;i++){
+        Zbroj[i] = 0;
+    }
+    while (fscanf(unos, "%d,%c\n", &broj1, &slovo) != EOF){
+        Zbroj[slovo-'a'] +=broj1;
+    }
+
+    for (int i=0; i<26; i++){
+        slovo = 'a' + i;
+        cout << slovo << " " << Zbroj[i] << endl;
+    }
+    cout << endl << endl;
+    fclose(unos);
+
+
+
+    char a,b,c;
+    char tocno[1000][4];
+    int brojtocno=0;
+    unos =fopen("C:\\Users\\ucenik\\Desktop\\cetvrti.txt","r");
+    while (fscanf(unos, "%c,%c,%c\n", &a, &b, &c) != EOF){
+
+        tocno[brojtocno][0] =a;
+        tocno[brojtocno][1] =b;
+        tocno[brojtocno][2] =c;
+        if (a < b && b<c)
+            tocno[brojtocno][3] ='T';
+        else
+            tocno[brojtocno][3] ='N';
+        brojtocno++;
+    }
+    fclose(unos);
+    unos =fopen("C:\\Users\\ucenik\\Desktop\\cetvrti.txt","w+");
+    for(int i=0; i<brojtocno;i++){
+        fprintf(unos,"%c,%c,%c%c\n",tocno[i][0],tocno[i][1],tocno[i][2],tocno[i][3]);
+    }
+    fclose(unos);
+}
